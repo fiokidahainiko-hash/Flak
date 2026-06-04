@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fiokidahainiko-hash.github.io/Flak/</loc>
+    <loc>https://fiokflow.online/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://fiokidahainiko-hash.github.io/Flak/about.html</loc>
+    <loc>https://fiokflow.online/about.html</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://fiokidahainiko-hash.github.io/Flak/contact.html</loc>
+    <loc>https://fiokflow.online/contact.html</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://fiokidahainiko-hash.github.io/Flak/privacy.html</loc>
+    <loc>https://fiokflow.online/privacy.html</loc>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://fiokidahainiko-hash.github.io/Flak/terms.html</loc>
+    <loc>https://fiokflow.online/terms.html</loc>
     <priority>0.3</priority>
   </url>
 </urlset>
