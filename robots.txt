@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fiokidahainiko-hash.github.io/Flak/sitemap.xml
