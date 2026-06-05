@@ -155,8 +155,9 @@ async function downloadVideo() {
     const data = await response.json();
     loading.style.display = "none";
 
-    if(data && data.data && data.data.play) {
-      const videoUrl = data.data.play;
+    if(data && data.data && (data.data.play || data.data.wmplay)) {
+      const videoUrl = data.data.play || data.data.wmplay;
+
       videoPlayer.src = videoUrl;
       downloadLink.href = videoUrl;
       resultBox.style.display = "block";
