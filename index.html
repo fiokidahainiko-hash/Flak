@@ -142,11 +142,11 @@ async function downloadVideo() {
 
   try {
     const response = await fetch(
-      "https://tiktok-video-no-watermark2.p.rapidapi.com/?" + new URLSearchParams({ url: url }),
+      "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index?" + new URLSearchParams({ url: url }),
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host": "tiktok-video-no-watermark2.p.rapidapi.com",
+          "x-rapidapi-host": "tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com",
           "x-rapidapi-key": "b9e00879d5mshc4baa25b084da69p1fca26jsne0aa3cb2ab26"
         }
       }
@@ -155,9 +155,8 @@ async function downloadVideo() {
     const data = await response.json();
     loading.style.display = "none";
 
-    if(data && data.data && (data.data.play || data.data.wmplay)) {
-      const videoUrl = data.data.play || data.data.wmplay;
-
+    if(data && data.video && data.video[0]) {
+      const videoUrl = data.video[0];
       videoPlayer.src = videoUrl;
       downloadLink.href = videoUrl;
       resultBox.style.display = "block";
