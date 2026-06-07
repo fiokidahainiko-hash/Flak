@@ -72,9 +72,11 @@ footer{background:#002b7f;color:white;text-align:center;padding:30px;margin-top:
 footer a{color:white;}
 .result-box{margin-top:20px;text-align:center;display:none;}
 .result-box video{width:100%;max-width:500px;border-radius:10px;margin-bottom:15px;}
-.download-btn{display:inline-block;background:#28a745;color:white;padding:12px 30px;border-radius:8px;text-decoration:none;font-size:16px;margin-top:10px;}
+.download-btn{display:inline-block;background:#28a745;color:white;padding:12px 30px;border-radius:8px;text-decoration:none;font-size:16px;margin-top:10px;cursor:pointer;}
+.download-btn:hover{background:#218838;}
 .loading{display:none;text-align:center;margin-top:15px;color:#002b7f;font-size:16px;}
-@media(max-width:768px){.hero h1{font-size:30px;}}
+.tip-box{background:#fff8e1;border:1px solid #ffd700;padding:15px;border-radius:8px;margin-top:15px;font-size:14px;color:#555;display:none;}
+@media(max-width:768px){.hero h1{font-size:30px;}.section{padding:40px 5%;}}
 </style>
 </head>
 <body>
@@ -87,63 +89,90 @@ footer a{color:white;}
 <a href="#download">Download</a>
 </nav>
 </header>
+
 <section class="hero" id="home">
 <h1>Download TikTok Videos Without Watermark</h1>
 <p>Flak is a fast and reliable TikTok video downloader that helps you save TikTok videos in high quality without watermark. Paste your TikTok link and download instantly.</p>
 </section>
+
 <section class="download-box" id="download">
 <h2 style="text-align:center;color:#002b7f;margin-bottom:20px;">TikTok Video Downloader</h2>
 <input type="text" id="videoLink" placeholder="Paste TikTok video URL here">
 <button onclick="downloadVideo()">Download Video</button>
 <div class="loading" id="loading">⏳ Fetching your video please wait...</div>
 <p id="message" style="margin-top:15px;text-align:center;"></p>
+<div class="tip-box" id="tipBox">
+📱 <strong>Mobile users:</strong> Tap the Download button, then long press the video and tap "Save Video" to save it to your device.<br><br>
+💻 <strong>Desktop users:</strong> Click the Download button, then right click the video and select "Save video as".
+</div>
 <div class="result-box" id="resultBox">
-<video id="videoPlayer" controls></video>
+<video id="videoPlayer" controls playsinline></video>
 <br>
-<a id="downloadLink" class="download-btn" download>⬇️ Download Video</a>
+<a id="downloadLink" class="download-btn" target="_blank">⬇️ Open Video To Download</a>
 </div>
 </section>
+
 <section class="section">
 <div class="ad-space">Google AdSense Placement Area</div>
 <h2>Why Choose Flak?</h2>
 <div class="features">
-<div class="card"><h3>Fast Downloads</h3><p>Get your TikTok videos downloaded in seconds.</p></div>
-<div class="card"><h3>No Watermark</h3><p>Save clean videos for personal offline viewing.</p></div>
-<div class="card"><h3>Mobile Friendly</h3><p>Works perfectly on Android, iPhone, tablets, and desktop devices.</p></div>
-<div class="card"><h3>Free To Use</h3><p>Simple and easy TikTok video downloading experience.</p></div>
+<div class="card"><h3>⚡ Fast Downloads</h3><p>Get your TikTok videos downloaded in seconds.</p></div>
+<div class="card"><h3>🚫 No Watermark</h3><p>Save clean videos for personal offline viewing.</p></div>
+<div class="card"><h3>📱 Mobile Friendly</h3><p>Works perfectly on Android, iPhone, tablets, and desktop devices.</p></div>
+<div class="card"><h3>💰 Free To Use</h3><p>Simple and easy TikTok video downloading experience.</p></div>
 </div>
 </section>
+
 <section class="section">
 <h2>How To Download TikTok Videos</h2>
-<ol>
-<li>Open TikTok and copy the video link.</li>
-<li>Paste the link into the Flak downloader box.</li>
-<li>Click Download Video.</li>
-<li>Save your video to your device.</li>
+<ol style="margin-left:20px;margin-top:15px;">
+<li style="margin-bottom:10px;">Open TikTok and copy the video link.</li>
+<li style="margin-bottom:10px;">Paste the link into the Flak downloader box.</li>
+<li style="margin-bottom:10px;">Click Download Video and wait a few seconds.</li>
+<li style="margin-bottom:10px;">Tap the green button to open the video.</li>
+<li style="margin-bottom:10px;">Long press the video and tap Save Video to your device.</li>
 </ol>
 </section>
+
 <section class="section">
 <h2>Frequently Asked Questions</h2>
 <div class="faq">
-<div class="faq-item"><strong>Is Flak free?</strong><p>Yes. Flak is free to use.</p></div>
-<div class="faq-item"><strong>Can I use Flak on mobile?</strong><p>Yes. Flak works on all modern mobile devices.</p></div>
-<div class="faq-item"><strong>Do I need an account?</strong><p>No. You can use Flak without registration.</p></div>
+<div class="faq-item">
+<strong>Is Flak free?</strong>
+<p>Yes. Flak is completely free to use with no hidden charges.</p>
+</div>
+<div class="faq-item">
+<strong>Can I use Flak on mobile?</strong>
+<p>Yes. Flak works perfectly on all modern mobile devices including Android and iPhone.</p>
+</div>
+<div class="faq-item">
+<strong>Do I need an account?</strong>
+<p>No. You can use Flak without any registration or account.</p>
+</div>
+<div class="faq-item">
+<strong>How do I save the video to my phone?</strong>
+<p>After clicking Download Video, tap the green button to open the video, then long press and select Save Video.</p>
+</div>
 </div>
 </section>
+
 <section class="section">
 <h2>Contact</h2>
 <p>Owner: Fiokidaha Iniko</p>
-<p>Email: <a href="mailto:Fiokidaha@fiokflow.online">Fiokidaha@fiokflow.online</a></p>
+<p style="margin-top:10px;">Email: <a href="mailto:Fiokidaha@fiokflow.online" style="color:#002b7f;">Fiokidaha@fiokflow.online</a></p>
 </section>
+
 <div style="text-align:center;margin:20px;">
 <a href="about.html">About Us</a> |
 <a href="contact.html">Contact</a> |
 <a href="privacy.html">Privacy Policy</a> |
 <a href="terms.html">Terms of Service</a>
 </div>
+
 <footer>
 <p>© 2026 Flak. All Rights Reserved.</p>
 </footer>
+
 <script>
 async function downloadVideo() {
   const url = document.getElementById("videoLink").value.trim();
@@ -152,14 +181,19 @@ async function downloadVideo() {
   const resultBox = document.getElementById("resultBox");
   const videoPlayer = document.getElementById("videoPlayer");
   const downloadLink = document.getElementById("downloadLink");
+  const tipBox = document.getElementById("tipBox");
+
   if(url === "") {
-    message.innerHTML = "Please enter a TikTok URL.";
+    message.innerHTML = "⚠️ Please enter a TikTok URL.";
     message.style.color = "red";
     return;
   }
+
   message.innerHTML = "";
   resultBox.style.display = "none";
+  tipBox.style.display = "none";
   loading.style.display = "block";
+
   try {
     const response = await fetch(
       "https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index?" + new URLSearchParams({ url: url }),
@@ -171,14 +205,18 @@ async function downloadVideo() {
         }
       }
     );
+
     const data = await response.json();
     loading.style.display = "none";
+
     if(data && data.video && data.video[0]) {
       const videoUrl = data.video[0];
       videoPlayer.src = videoUrl;
       downloadLink.href = videoUrl;
+      downloadLink.target = "_blank";
       resultBox.style.display = "block";
-      message.innerHTML = "✅ Video ready! Press Download below.";
+      tipBox.style.display = "block";
+      message.innerHTML = "✅ Video ready! Tap the green button below to open and save it.";
       message.style.color = "green";
     } else {
       message.innerHTML = "❌ Could not fetch video. Please check the URL and try again.";
