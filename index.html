@@ -75,11 +75,12 @@ footer a{color:white;}
 .download-btn{display:inline-block;background:#28a745;color:white;padding:12px 30px;border-radius:8px;text-decoration:none;font-size:16px;margin-top:10px;cursor:pointer;}
 .download-btn:hover{background:#218838;}
 .loading{display:none;text-align:center;margin-top:15px;color:#002b7f;font-size:16px;}
-.tip-box{background:#fff8e1;border:1px solid #ffd700;padding:15px;border-radius:8px;margin-top:15px;font-size:14px;color:#555;display:none;}
+.tip-box{background:#fff8e1;border:1px solid #ffd700;padding:15px;border-radius:8px;margin-top:15px;font-size:15px;color:#444;display:none;text-align:left;line-height:1.8;}
 @media(max-width:768px){.hero h1{font-size:30px;}.section{padding:40px 5%;}}
 </style>
 </head>
 <body>
+
 <header>
 <div class="logo">
 <img src="logo.png.JPG" alt="Flak Logo" height="50">
@@ -100,15 +101,23 @@ footer a{color:white;}
 <input type="text" id="videoLink" placeholder="Paste TikTok video URL here">
 <button onclick="downloadVideo()">Download Video</button>
 <div class="loading" id="loading">⏳ Fetching your video please wait...</div>
-<p id="message" style="margin-top:15px;text-align:center;"></p>
+<p id="message" style="margin-top:15px;text-align:center;font-size:15px;"></p>
 <div class="tip-box" id="tipBox">
-📱 <strong>Mobile users:</strong> Tap the Download button, then long press the video and tap "Save Video" to save it to your device.<br><br>
-💻 <strong>Desktop users:</strong> Click the Download button, then right click the video and select "Save video as".
+  <strong>📱 On Mobile (Android & iPhone):</strong><br>
+  1. Tap the green button below<br>
+  2. The video will open in a new tab<br>
+  3. Hold down on the video for 2 seconds<br>
+  4. Tap <strong>"Save Video"</strong> or <strong>"Download Video"</strong><br><br>
+  <strong>💻 On Desktop/Laptop:</strong><br>
+  1. Click the green button below<br>
+  2. The video will open in a new tab<br>
+  3. Right click on the video<br>
+  4. Click <strong>"Save Video As"</strong>
 </div>
 <div class="result-box" id="resultBox">
-<video id="videoPlayer" controls playsinline></video>
-<br>
-<a id="downloadLink" class="download-btn" target="_blank">⬇️ Open Video To Download</a>
+  <video id="videoPlayer" controls playsinline></video>
+  <br>
+  <a id="downloadLink" class="download-btn" target="_blank">⬇️ Open Video To Download</a>
 </div>
 </section>
 
@@ -127,10 +136,10 @@ footer a{color:white;}
 <h2>How To Download TikTok Videos</h2>
 <ol style="margin-left:20px;margin-top:15px;">
 <li style="margin-bottom:10px;">Open TikTok and copy the video link.</li>
-<li style="margin-bottom:10px;">Paste the link into the Flak downloader box.</li>
-<li style="margin-bottom:10px;">Click Download Video and wait a few seconds.</li>
-<li style="margin-bottom:10px;">Tap the green button to open the video.</li>
-<li style="margin-bottom:10px;">Long press the video and tap Save Video to your device.</li>
+<li style="margin-bottom:10px;">Paste the link into the Flak downloader box above.</li>
+<li style="margin-bottom:10px;">Tap the Download Video button and wait a few seconds.</li>
+<li style="margin-bottom:10px;">Tap the green button to open the video in a new tab.</li>
+<li style="margin-bottom:10px;">Hold down on the video and tap Save Video to save it to your device.</li>
 </ol>
 </section>
 
@@ -151,7 +160,11 @@ footer a{color:white;}
 </div>
 <div class="faq-item">
 <strong>How do I save the video to my phone?</strong>
-<p>After clicking Download Video, tap the green button to open the video, then long press and select Save Video.</p>
+<p>After tapping Download Video tap the green button to open the video then hold down on the video and select Save Video.</p>
+</div>
+<div class="faq-item">
+<strong>Why can I not download directly?</strong>
+<p>Due to browser security restrictions videos must be opened in a new tab first. Simply hold down on the video and tap Save Video to save it to your device.</p>
 </div>
 </div>
 </section>
@@ -213,10 +226,9 @@ async function downloadVideo() {
       const videoUrl = data.video[0];
       videoPlayer.src = videoUrl;
       downloadLink.href = videoUrl;
-      downloadLink.target = "_blank";
       resultBox.style.display = "block";
       tipBox.style.display = "block";
-      message.innerHTML = "✅ Video ready! Tap the green button below to open and save it.";
+      message.innerHTML = "✅ Video ready!";
       message.style.color = "green";
     } else {
       message.innerHTML = "❌ Could not fetch video. Please check the URL and try again.";
