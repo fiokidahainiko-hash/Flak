@@ -107,4 +107,144 @@ footer a{color:white;}
 <p id="message" style="margin-top:15px;text-align:center;font-size:15px;"></p>
 <div class="result-box" id="resultBox">
   <div class="video-info" id="videoInfo"></div>
-  <img
+  <img id="videoThumb" src="" alt="Video Thumbnail" style="display:none;">
+  <br>
+  <a id="downloadLink" class="download-btn">⬇️ Download Without Watermark</a>
+  <a id="downloadLink2" class="download-btn2" style="margin-top:10px;">🎵 Download Audio Only (MP3)</a>
+</div>
+</section>
+
+<section class="section">
+<div class="ad-space">Google AdSense Placement Area</div>
+<h2>Why Choose Flak?</h2>
+<div class="features">
+<div class="card"><h3>⚡ Fast Downloads</h3><p>Get your TikTok videos downloaded in seconds.</p></div>
+<div class="card"><h3>🚫 No Watermark</h3><p>Save clean videos for personal offline viewing.</p></div>
+<div class="card"><h3>📱 Mobile Friendly</h3><p>Works perfectly on Android, iPhone, tablets, and desktop devices.</p></div>
+<div class="card"><h3>💰 Free To Use</h3><p>Simple and easy TikTok video downloading experience.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>How To Download TikTok Videos</h2>
+<ol style="margin-left:20px;margin-top:15px;">
+<li style="margin-bottom:10px;">Open TikTok and copy the video link.</li>
+<li style="margin-bottom:10px;">Paste the link into the Flak downloader box above.</li>
+<li style="margin-bottom:10px;">Tap the Download Video button and wait a few seconds.</li>
+<li style="margin-bottom:10px;">Tap the green Download button to save the video to your device.</li>
+</ol>
+</section>
+
+<section class="section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<div class="faq-item">
+<strong>Is Flak free?</strong>
+<p>Yes. Flak is completely free to use with no hidden charges.</p>
+</div>
+<div class="faq-item">
+<strong>Can I use Flak on mobile?</strong>
+<p>Yes. Flak works perfectly on all modern mobile devices including Android and iPhone.</p>
+</div>
+<div class="faq-item">
+<strong>Do I need an account?</strong>
+<p>No. You can use Flak without any registration or account.</p>
+</div>
+<div class="faq-item">
+<strong>How do I save the video to my phone?</strong>
+<p>Simply paste your TikTok link and tap Download Video. Then tap the green Download button to save the video directly to your device.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Contact</h2>
+<p>Owner: Fiokidaha Iniko</p>
+<p style="margin-top:10px;">Email: <a href="mailto:Fiokidaha@fiokflow.online" style="color:#002b7f;">Fiokidaha@fiokflow.online</a></p>
+</section>
+
+<div style="text-align:center;margin:20px;">
+<a href="about.html">About Us</a> |
+<a href="contact.html">Contact</a> |
+<a href="privacy.html">Privacy Policy</a> |
+<a href="terms.html">Terms of Service</a>
+</div>
+
+<footer>
+<p>© 2026 Flak. All Rights Reserved.</p>
+</footer>
+
+<script>
+async function downloadVideo() {
+  const url = document.getElementById("videoLink").value.trim();
+  const message = document.getElementById("message");
+  const loading = document.getElementById("loading");
+  const resultBox = document.getElementById("resultBox");
+  const downloadLink = document.getElementById("downloadLink");
+  const downloadLink2 = document.getElementById("downloadLink2");
+  const videoThumb = document.getElementById("videoThumb");
+  const videoInfo = document.getElementById("videoInfo");
+
+  if(url === "") {
+    message.innerHTML = "⚠️ Please enter a TikTok URL.";
+    message.style.color = "red";
+    return;
+  }
+
+  message.innerHTML = "";
+  resultBox.style.display = "none";
+  loading.style.display = "block";
+
+  try {
+    const response = await fetch("https://tikwm.com/api/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        url: url,
+        hd: "1"
+      })
+    });
+
+    const data = await response.json();
+    loading.style.display = "none";
+
+    if(data && data.code === 0 && data.data) {
+      const video = data.data;
+      const videoUrl = "https://tikwm.com" + video.play;
+      const musicUrl = "https://tikwm.com" + video.music;
+      const thumbUrl = "https://tikwm.com" + video.cover;
+      const author = video.author ? video.author.nickname : "Unknown";
+      const title = video.title || "TikTok Video";
+
+      videoInfo.innerHTML = `
+        <p><strong>👤 Author:</strong> ${author}</p>
+        <p><strong>📝 Title:</strong> ${title}</p>
+      `;
+
+      videoThumb.src = thumbUrl;
+      videoThumb.style.display = "block";
+
+      downloadLink.href = videoUrl;
+      downloadLink.setAttribute("download", "flak-video.mp4");
+
+      downloadLink2.href = musicUrl;
+      downloadLink2.setAttribute("download", "flak-audio.mp3");
+
+      resultBox.style.display = "block";
+      message.innerHTML = "✅ Video ready! Tap the green button to download!";
+      message.style.color = "green";
+    } else {
+      message.innerHTML = "❌ Could not fetch video. Please check the URL and try again.";
+      message.style.color = "red";
+    }
+  } catch(error) {
+    loading.style.display = "none";
+    message.innerHTML = "❌ Something went wrong. Please try again.";
+    message.style.color = "red";
+  }
+}
+</script>
+</body>
+</html>
