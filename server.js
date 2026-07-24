@@ -1,6 +1,12 @@
 const https = require("https");
 const http = require("http");
 
+function fixUrl(url) {
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
+  return "https://tikwm.com" + url;
+}
+
 const server = http.createServer((req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
@@ -49,6 +55,14 @@ const server = http.createServer((req, res) => {
           response.on("end", () => {
             try {
               const result = JSON.parse(data);
+
+              if (result.code === 0 && result.data) {
+                result.data.play = fixUrl(result.data.play);
+                result.data.wmplay = fixUrl(result.data.wmplay);
+                result.data.music = fixUrl(result.data.music);
+                result.data.cover = fixUrl(result.data.cover);
+              }
+
               res.writeHead(200, { "Content-Type": "application/json" });
               res.end(JSON.stringify(result));
             } catch(e) {
