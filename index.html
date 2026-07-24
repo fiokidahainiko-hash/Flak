@@ -209,9 +209,9 @@ async function downloadVideo() {
 
     if(data && data.code === 0 && data.data) {
       const video = data.data;
-      const videoUrl = "https://tikwm.com" + video.play;
-      const musicUrl = "https://tikwm.com" + video.music;
-      const thumbUrl = "https://tikwm.com" + video.cover;
+      const videoUrl = video.play;
+      const musicUrl = video.music;
+      const thumbUrl = video.cover;
       const author = video.author ? video.author.nickname : "Unknown";
       const title = video.title || "TikTok Video";
 
