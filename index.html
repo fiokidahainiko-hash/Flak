@@ -175,6 +175,12 @@ footer a{color:white;}
 </footer>
 
 <script>
+function fixUrl(url) {
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
+  return "https://tikwm.com" + url;
+}
+
 async function downloadVideo() {
   const url = document.getElementById("videoLink").value.trim();
   const message = document.getElementById("message");
@@ -209,9 +215,9 @@ async function downloadVideo() {
 
     if(data && data.code === 0 && data.data) {
       const video = data.data;
-      const videoUrl = video.play;
-      const musicUrl = video.music;
-      const thumbUrl = video.cover;
+      const videoUrl = fixUrl(video.play);
+      const musicUrl = fixUrl(video.music);
+      const thumbUrl = fixUrl(video.cover);
       const author = video.author ? video.author.nickname : "Unknown";
       const title = video.title || "TikTok Video";
 
