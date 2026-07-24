@@ -48,9 +48,9 @@ const server = http.createServer((req, res) => {
           response.on("data", (chunk) => { data += chunk; });
           response.on("end", () => {
             try {
-              const parsed = JSON.parse(data);
+              const result = JSON.parse(data);
               res.writeHead(200, { "Content-Type": "application/json" });
-              res.end(JSON.stringify(parsed));
+              res.end(JSON.stringify(result));
             } catch(e) {
               res.writeHead(500, { "Content-Type": "application/json" });
               res.end(JSON.stringify({ error: "Invalid response from API" }));
