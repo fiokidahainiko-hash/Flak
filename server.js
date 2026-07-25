@@ -7,6 +7,36 @@ function fixUrl(url) {
   return "https://tikwm.com" + url;
 }
 
+function downloadFile(fileUrl, res, filename) {
+  const urlObj = new URL(fileUrl);
+  const options = {
+    hostname: urlObj.hostname,
+    path: urlObj.pathname + urlObj.search,
+    method: "GET",
+    headers: {
+      "User-Agent": "Mozilla/5.0"
+    }
+  };
+
+  const request = https.request(options, (response) => {
+    if (response.statusCode === 301 || response.statusCode === 302) {
+      downloadFile(response.headers.location, res, filename);
+      return;
+    }
+    res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+    res.setHeader("Content-Type", response.headers["content-type"] || "video/mp4");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    response.pipe(res);
+  });
+
+  request.on("error", (error) => {
+    res.writeHead(500, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: error.message }));
+  });
+
+  request.end();
+}
+
 const server = http.createServer((req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
@@ -15,6 +45,21 @@ const server = http.createServer((req, res) => {
   if (req.method === "OPTIONS") {
     res.writeHead(200);
     res.end();
+    return;
+  }
+
+  if (req.url.startsWith("/api/proxy") && req.method === "GET") {
+    const urlParams = new URL(req.url, "http://localhost");
+    const fileUrl = urlParams.searchParams.get("url");
+    const filename = urlParams.searchParams.get("filename") || "flak-video.mp4";
+
+    if (!fileUrl) {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "URL is required" }));
+      return;
+    }
+
+    downloadFile(fileUrl, res, filename);
     return;
   }
 
