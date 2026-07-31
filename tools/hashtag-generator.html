@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free TikTok Hashtag Generator | Flak</title>
+
+<meta name="description" content="Generate trending TikTok hashtags instantly with Flak.">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f7fb;
+}
+
+header{
+    background:#0d6efd;
+    color:white;
+    padding:18px;
+    text-align:center;
+}
+
+.container{
+    max-width:700px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h1{
+    margin:0;
+}
+
+input,select{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#0d6efd;
+    color:white;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0b5ed7;
+}
+
+#hashtags{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tag{
+    background:#0d6efd;
+    color:white;
+    padding:8px 12px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Flak Hashtag Generator</h1>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Generate TikTok Hashtags</h2>
+
+<input
+id="keyword"
+type="text"
+placeholder="Example: Football">
+
+<select id="category">
+
+<option>General</option>
+
+<option>Gaming</option>
+
+<option>Music</option>
+
+<option>Fitness</option>
+
+<option>Fashion</option>
+
+<option>Food</option>
+
+<option>Business</option>
+
+</select>
+
+<button>
+Generate Hashtags
+</button>
+
+<div id="hashtags"></div>
+
+</div>
+
+</div>
+
+</body>
+</html>
