@@ -266,3 +266,90 @@ h1{
 }
 
 }
+
+/* Toast */
+
+.toast{
+
+position:fixed;
+
+top:-80px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+padding:15px 25px;
+
+background:#00BFFF;
+
+color:white;
+
+border-radius:12px;
+
+transition:.5s;
+
+z-index:9999;
+
+font-weight:bold;
+
+box-shadow:0 0 30px #00BFFF;
+
+}
+
+.toast.show{
+
+top:30px;
+
+}
+
+
+/* Ripple */
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.ripple{
+
+position:absolute;
+
+width:20px;
+
+height:20px;
+
+background:rgba(255,255,255,.6);
+
+border-radius:50%;
+
+transform:translate(-50%,-50%);
+
+animation:ripple .6s linear;
+
+pointer-events:none;
+
+}
+
+@keyframes ripple{
+
+from{
+
+opacity:1;
+
+transform:translate(-50%,-50%) scale(0);
+
+}
+
+to{
+
+opacity:0;
+
+transform:translate(-50%,-50%) scale(20);
+
+}
+
+}
