@@ -82,7 +82,86 @@ button:hover{
 </style>
 
 </head>
+<script>
 
+const commonTags = [
+"fyp",
+"viral",
+"trending",
+"tiktok",
+"explore",
+"foryou",
+"foryoupage",
+"video",
+"creator",
+"content"
+];
+
+const categoryTags = {
+General:["trend","popular","discover"],
+Gaming:["gaming","gamer","gameplay","esports"],
+Music:["music","song","artist","beats"],
+Fitness:["fitness","gym","workout","health"],
+Fashion:["fashion","style","outfit","ootd"],
+Food:["food","recipe","delicious","foodie"],
+Business:["business","money","startup","success"]
+};
+
+function generateHashtags(){
+
+const keyword = document
+.getElementById("keyword")
+.value
+.trim()
+.toLowerCase();
+
+const category = document
+.getElementById("category")
+.value;
+
+const container =
+document.getElementById("hashtags");
+
+container.innerHTML="";
+
+if(keyword===""){
+alert("Please enter a keyword.");
+return;
+}
+
+let tags=[];
+
+tags.push("#"+keyword);
+tags.push("#"+keyword+"tips");
+tags.push("#"+keyword+"video");
+tags.push("#"+keyword+"2026");
+tags.push("#"+keyword+"tok");
+
+commonTags.forEach(tag=>{
+tags.push("#"+tag);
+});
+
+categoryTags[category].forEach(tag=>{
+tags.push("#"+tag);
+});
+
+tags=[...new Set(tags)];
+
+tags.forEach(tag=>{
+
+const span=document.createElement("span");
+
+span.className="tag";
+
+span.textContent=tag;
+
+container.appendChild(span);
+
+});
+
+}
+
+</script>
 <body>
 
 <header>
