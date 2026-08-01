@@ -1,0 +1,113 @@
+<!--
+  ===================================================================
+  FLAKCREATORSTUDIO — TOOL PAGE TEMPLATE
+  ===================================================================
+  HOW TO USE THIS TEMPLATE FOR A NEW TOOL:
+
+  1. Copy this file into /tools/ and rename it to match the tool,
+     e.g. tools/caption-generator.html
+
+  2. Find/replace every {{PLACEHOLDER}} below:
+       {{TOOL_NAME}}        -> e.g. "Caption Generator"
+       {{TOOL_SLUG}}        -> e.g. "caption-generator" (matches filename, no .html)
+       {{TOOL_DESCRIPTION}} -> one sentence for meta description + subtitle
+
+  3. Replace the <!-- TOOL INPUT FIELDS --> block with whatever
+     inputs this tool needs (text input, select, textarea, etc.)
+     Follow the existing input/select styling already in styles.css
+     — no new CSS should be needed for basic form fields.
+
+  4. Create /assets/js/{{TOOL_SLUG}}.js with the tool's logic.
+     Reuse helpers already in app.js:
+       - showToast(message)
+       - copyText(text)
+       - loadingButton(button)
+     Wire your generate button to a function, output results into
+     the #output element below (or add your own output container).
+
+  5. Add the tool to /assets/js/tools-data.js:
+       { id:"{{TOOL_SLUG}}", name:"{{TOOL_NAME}}", icon:"🔧",
+         category:"...", description:"{{TOOL_DESCRIPTION}}",
+         status:"live", url:"tools/{{TOOL_SLUG}}.html" }
+     (this alone makes it show up on the dashboard automatically)
+
+  6. Add the page to /sitemap.xml.
+
+  Do NOT touch: AdSense script, Google Analytics script, GSC
+  verification meta tags below — copy them exactly as-is from
+  another live page, don't write them from memory.
+  ===================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{TOOL_NAME}} | Flakcreatorstudio</title>
+<meta name="description" content="{{TOOL_DESCRIPTION}}">
+<link rel="canonical" href="https://fiokflow.online/tools/{{TOOL_SLUG}}.html" />
+
+<link rel="stylesheet" href="../assets/css/styles.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<div class="logo">
+<img src="../assets/images/logo-icon.svg" alt="Flakcreatorstudio logo" width="40" height="40">
+<span class="logo-text">Flak<em>creatorstudio</em></span>
+</div>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../index.html#download">Downloader</a>
+<a href="index.html">Tools</a>
+<a href="../blog/">Blog</a>
+<a href="../contact.html">Contact</a>
+</nav>
+
+</div>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h1>{{TOOL_NAME}}</h1>
+<p class="subtitle">{{TOOL_DESCRIPTION}}</p>
+
+<!-- TOOL INPUT FIELDS — replace with this tool's actual inputs -->
+<input id="toolInput" type="text" placeholder="Enter something...">
+
+<div style="display:flex;gap:15px;">
+  <button id="generateBtn" style="flex:1;">Generate</button>
+  <button id="copyBtn" style="flex:1;">Copy All</button>
+</div>
+
+<!-- OUTPUT AREA — tool JS should render results in here -->
+<div id="output"></div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Flakcreatorstudio. All Rights Reserved.
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/{{TOOL_SLUG}}.js"></script>
+
+</body>
+
+</html>
