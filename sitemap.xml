@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://fiokflow.online/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://fiokflow.online/tools.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://fiokflow.online/video-downloader.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://fiokflow.online/mp3-downloader.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fiokflow.online/hashtag-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fiokflow.online/caption-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fiokflow.online/bio-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fiokflow.online/video-idea-generator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fiokflow.online/blog.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+</urlset>
